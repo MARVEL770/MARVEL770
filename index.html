@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MARVEL: Multidimensional Abstraction and Reasoning through Visual Evaluation and Learning</title>
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <!-- <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a> -->
+
+      <!-- <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div> -->
+    <!-- </div> -->
+
+  <!-- </div> -->
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MARVEL: Multidimensional Abstraction and Reasoning through Visual Evaluation and Learning</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=npRM7lYAAAAJ&hl=en&authuser=1">Yifan Jiang</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://saccharomycetes.github.io/">Jiarui Zhang</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.kianasun.com/">Kexuan Sun</a><sup>1*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://zhpinkman.github.io/">Zhivar Sourati</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=en&user=pwUdiCYAAAAJ">Kian Ahrabian</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://mayer123.github.io/">Kaixin Ma</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.ilievski.info/">Filip Ilievski</a><sup>3</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://www.jaypujara.org/">Jay Pujara</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Information Sciences Institute, University of Southern California</span> <br>
+            <span class="author-block"><sup>2</sup>Tencent AI Lab, Bellevue, WA</span>
+            <span class="author-block"><sup>3</sup>Department of Computer Science, Faculty of Science, Vrije Universiteit Amsterdam</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2404.13591.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2404.13591"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/1171-jpg/MARVEL_AVR/tree/main"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container">
+    <div class="hero-body" style="display: flex; justify-content: space-around;">
+      <div style="flex-basis: 50%;">
+
+        <img src="./static/images/marvel_example.png"  style="height: 100%; width: 100vw;">
+      </div>
+      <div style="flex-basis: 50%;">
+        <img src="./static/images/table.png"  style="height: 80%; width: 100vw;">
+      </div>
+    </div>
+    <h2 class="subtitle has-text-centered">
+      <b><span class="dnerf">MARVEL</span></b> is a multidimensional AVR benchmark with <b>770 puzzles </b> composed of <b>psix core knowledge patterns</b>, <b>pgeometric and abstract shapes</b>, and <b>five different task configurations </b>.
+    </h2>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/10.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/12.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/34.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/110.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/120.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/230.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/125.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/544.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/572.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/566.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/117.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/146.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/154.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/181.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+        <div class="item item-steve">
+          <div class="item item-shiba">
+            <img src="./static/images/Marvel/553.png" alt="Shiba" style="height: 100%;">
+          </div>
+        </div>
+
+        <!-- <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          While multi-modal large language models (MLLMs) have shown significant progress on many popular visual reasoning benchmarks, whether
+          they possess abstract visual reasoning abilities remains an open question.
+          Similar to the Sudoku puzzles, abstract visual reasoning (AVR) problems
+          require finding high-level patterns (e.g., repetition constraints) that control
+          the input shapes (e.g., digits) in a specific task configuration (e.g., matrix). However, existing AVR benchmarks only considered a limited set
+          of patterns (addition, conjunction), input shapes (rectangle, square), and
+          task configurations (3 by 3 matrices). To evaluate MLLMs' reasoning abilities comprehensively, we introduce <b><span class="dnerf">MARVEL</span></b>, a multidimensional AVR
+          benchmark with 770 puzzles composed of six core knowledge patterns,
+          geometric and abstract shapes, and five different task configurations. To inspect whether the model accuracy is grounded in perception and reasoning,
+          MARVEL complements the general AVR question with perception questions in a hierarchical evaluation framework. We conduct comprehensive
+          experiments on MARVEL with nine representative MLLMs in zero-shot
+          and few-shot settings. Our experiments reveal that all models show nearrandom performance on the AVR question, with significant performance
+          gaps (40%) compared to humans across all patterns and task configurations. Further analysis of perception questions reveals that MLLMs struggle
+          to comprehend the visual features (near-random performance) and even
+          count the panels in the puzzle (<45&#37;), hindering their ability for abstract
+          reasoning. We release our entire code and dataset.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    / Paper video.
+  </div> -->
+</section>
+
+
+<section class="section">
+  <div class="container">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Main Result</h2>
+          <p>
+            Main zero-shot accuracy over MARVEL across all MLLMs. For both open and closed source categories, all
+            models show near-random performance with a huge gap (40%) compared to human performance. Further result based on perception (left columns) highlights the poor visual perception ability of current models.
+          </p>
+          <img src="./static/images/main_table.png"  style="height: 100%; width: 100vw;">
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-3">Result across patterns and task configurations</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              MLLMs and human performance across patterns and task configurations. Claude3 (Opus) exhibits a balanced and
+              strong reasoning ability, ranking in the top 2 across all patterns. Three out of four MLLMs rank 1st in different task configurations, which verifies the potential bias in single-configuration evaluation and the importance of multidimensional comprehensive evaluation.
+            </p>
+            <img src="./static/images/radar_website.png"  style="height: 80%; width: 100vw;">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Few-shot Result</h2>
+          <p>
+            MLLMs performance in different few-shot COT. None of these approaches yields a positive impact; instead, they lead to a significant drop in performance. Given the complexity and challenging nature of the dataset,
+            the effectiveness of few-shot prompting on MARVEL remains minimal
+          </p>
+          <img src="./static/images/few_shot.png"  style="height: 80%; width: 100vw;">
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-3">Few-shot example</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              An example of zero-and few-shot results from Claude3 (Opus). With the demonstration, the model learns to focus on the correct pattern (blue) at the beginning of the reasoning.
+              However, it fails to adapt precisely to the input shapes in the puzzle (red), leading to errors in subsequent reasoning. 
+            </p>
+            <img src="./static/images/few-shot_example.png"  style="height: 80%; width: 100vw;">
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+
+    <!-- Animation. -->
+    <!-- <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Animation</h2>
+
+        Interpolating.
+        <h3 class="title is-4">Interpolating states</h3>
+        <div class="content has-text-justified">
+          <p>
+            We can also animate the scene by interpolating the deformation latent codes of two input
+            frames. Use the slider here to linearly interpolate between the left frame and the right
+            frame.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/interpolate_start.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p>Start Frame</p>
+          </div>
+          <div class="column interpolation-video-column">
+            <div id="interpolation-image-wrapper">
+              Loading...
+            </div>
+            <input class="slider is-fullwidth is-large is-info"
+                   id="interpolation-slider"
+                   step="1" min="0" max="100" value="0" type="range">
+          </div>
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/interpolate_end.jpg"
+                 class="interpolation-image"
+                 alt="Interpolation end reference image."/>
+            <p class="is-bold">End Frame</p>
+          </div>
+        </div>
+        <br/>
+        / Interpolating.
+
+        Re-rendering.
+        <h3 class="title is-4">Re-rendering the input video</h3>
+        <div class="content has-text-justified">
+          <p>
+            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
+            viewpoint such as a stabilized camera by playing back the training deformations.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/videos/replay.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        / Re-rendering.
+
+      </div>
+    </div> -->
+    <!--/ Animation. -->
+
+
+    <!-- Concurrent Work.
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            There's a lot of excellent work that was introduced around the same time as ours.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
+          </p>
+          <p>
+            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
+            both use deformation fields to model non-rigid scenes.
+          </p>
+          <p>
+            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
+          </p>
+          <p>
+            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+          </p>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{jiang2024marvel,
+      title={MARVEL: Multidimensional Abstraction and Reasoning through Visual Evaluation and Learning}, 
+      author={Yifan Jiang and Jiarui Zhang and Kexuan Sun and Zhivar Sourati and Kian Ahrabian and Kaixin Ma and Filip Ilievski and Jay Pujara},
+      year={2024},
+      eprint={2404.13591},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>Website contributed by <a
+            href="https://www.linkedin.com/in/chenghao-zhong-23b867233/">Devin Zhong</a></p>
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
