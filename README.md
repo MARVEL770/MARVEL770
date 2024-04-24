@@ -1,8 +1,8 @@
 # MARVEL
 
-This is the repository that contains source code for the [MARVEL website](https://github.com/1171-jpg/MARVEL_AVR/tree/main).
+This is the repository that contains the source code for the [MARVEL website](https://marvel770.github.io/).
 
-If you find MARVEL useful for your work please cite:
+If you find MARVEL useful for your work, please cite:
 ```
 @misc{jiang2024marvel,
       title={MARVEL: Multidimensional Abstraction and Reasoning through Visual Evaluation and Learning}, 
