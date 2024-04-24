@@ -1,14 +1,16 @@
-# Nerfies
+# MARVEL
 
-This is the repository that contains source code for the [Nerfies website](https://nerfies.github.io).
+This is the repository that contains source code for the [MARVEL website](https://nerfies.github.io).
 
-If you find Nerfies useful for your work please cite:
+If you find MARVEL useful for your work please cite:
 ```
-@article{park2021nerfies
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+@misc{jiang2024marvel,
+      title={MARVEL: Multidimensional Abstraction and Reasoning through Visual Evaluation and Learning}, 
+      author={Yifan Jiang and Jiarui Zhang and Kexuan Sun and Zhivar Sourati and Kian Ahrabian and Kaixin Ma and Filip Ilievski and Jay Pujara},
+      year={2024},
+      eprint={2404.13591},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
 
