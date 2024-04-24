@@ -1,6 +1,6 @@
 # MARVEL
 
-This is the repository that contains source code for the [MARVEL website](https://nerfies.github.io).
+This is the repository that contains source code for the [MARVEL website](https://github.com/1171-jpg/MARVEL_AVR/tree/main).
 
 If you find MARVEL useful for your work please cite:
 ```
