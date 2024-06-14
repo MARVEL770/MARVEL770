@@ -187,10 +187,10 @@
     <div class="hero-body" style="display: flex; justify-content: space-around;">
       <div style="flex-basis: 50%;">
 
-        <img src="./static/images/marvel_example.png"  style="height: 100%; width: 100vw;">
+        <img src="./static/images/marvel_example.jpg"  style="height: 100%; width: 100vw;">
       </div>
       <div style="flex-basis: 50%;">
-        <img src="./static/images/table.png"  style="height: 80%; width: 100vw;">
+        <img src="./static/images/table.jpg"  style="height: 80%; width: 100vw;">
       </div>
     </div>
     <h2 class="subtitle has-text-centered">
@@ -362,7 +362,7 @@
             Main zero-shot accuracy over MARVEL across all MLLMs. For both open and closed source categories, all
             models show near-random performance with a huge gap (40%) compared to human performance. Further result based on perception (left columns) highlights the poor visual perception ability of current models.
           </p>
-          <img src="./static/images/main_table.png"  style="height: 100%; width: 100vw;">
+          <img src="./static/images/main_table.jpg"  style="height: 100%; width: 100vw;">
         </div>
       </div>
       <!--/ Visual Effects. -->
@@ -376,7 +376,7 @@
               MLLMs and human performance across patterns and task configurations. Claude3 (Opus) exhibits a balanced and
               strong reasoning ability, ranking in the top 2 across all patterns. Three out of four MLLMs rank 1st in different task configurations, which verifies the potential bias in single-configuration evaluation and the importance of multidimensional comprehensive evaluation.
             </p>
-            <img src="./static/images/radar_website.png"  style="height: 70%; width: 100vw;">
+            <img src="./static/images/radar_website.jpg"  style="height: 70%; width: 100vw;">
           </div>
 
         </div>
@@ -395,7 +395,7 @@
             MLLMs performance in different few-shot COT. None of these approaches yields a positive impact; instead, they lead to a significant drop in performance. Given the complexity and challenging nature of the dataset,
             the effectiveness of few-shot prompting on MARVEL remains minimal
           </p>
-          <img src="./static/images/few_shot.png"  style="height: 80%; width: 100vw;">
+          <img src="./static/images/few_shot.jpg"  style="height: 80%; width: 100vw;">
         </div>
       </div>
       <!--/ Visual Effects. -->
@@ -409,7 +409,41 @@
               An example of zero-and few-shot results from Claude3 (Opus). With the demonstration, the model learns to focus on the correct pattern (blue) at the beginning of the reasoning.
               However, it fails to adapt precisely to the input shapes in the puzzle (red), leading to errors in subsequent reasoning. 
             </p>
-            <img src="./static/images/few-shot_example.png"  style="height: 80%; width: 100vw;">
+            <img src="./static/images/few_shot_example.png"  style="height: 80%; width: 100vw;">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    Since poor visual perception is the main obstacle to improving MLLMs' abstract reasoning ability,
+    in this section, we conduct two additional experiments to understand these models' potential when
+    perceptual barriers are mitigated.
+    <div class="columns is-centered">
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Experiment 1: Pattern Reasoning</h2>
+          <p>
+           We analyze the model's perception ability on the question part by presenting
+            models with the same puzzle but asking for possible underlying patterns in a multiple-choice setting.
+            Closed-source models show non-random results when reasoning about the underlying pattern, while nearly all open-source models struggle to outperform random baselines. This gap indicates that closed-source models partially understand the patterns, but more accurate visual perception is needed to complete the entire task.
+          </p>
+          <img src="./static/images/avr_pattern.jpg"  style="height: 80%; width: 100vw;">
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-3">Experiment 2: MARVEL_TEXT</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+               We add accurate text descriptions of the puzzle on a subset of MARVEL. The result shows a significant boost in performance, with GPT-4V achieving human-level accuracy (65%). On the contrary, open-source MLLMs still lag behind, indicating that while enhanced textual descriptions can improve performance, they do not fully bridge the gap between closed-source and open-source models. This further supports that closed-source models possess superior reasoning capabilities often overshadowed by visual perception. The distinction between different MLLMs also underscores the potential effectiveness of \textsc{MARVEL} in evaluating AVR ability, particularly when the weakness of visual perception is addressed.
+            </p>
+            <img src="./static/images/avr_text_table.jpg"  style="height: 80%; width: 100vw;">
           </div>
 
         </div>
